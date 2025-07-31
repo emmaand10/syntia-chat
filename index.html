@@ -29,14 +29,11 @@
     :root {
       --chat--color-primary: #49D6BB;
       --chat--color-secondary: #49D6BB;
-
       --chat--message--bot--background: rgba(255, 255, 255, 0.85);
       --chat--message--user--background: rgba(73, 214, 187, 0.95);
       --chat--message--user--color: #ffffff;
-
       --chat--header--background: #49D6BB;
       --chat--header--color: #ffffff;
-
       --chat--window--border-radius: 0px;
     }
   </style>
@@ -68,19 +65,48 @@
       }
     });
 
-    // ⚠️ Attendre le chargement complet puis injecter le fond image dans la zone des messages
-    setTimeout(() => {
-      const chat = document.querySelector('n8n-chat');
-      if (chat && chat.shadowRoot) {
-        const messagesWrapper = chat.shadowRoot.querySelector('.chat__messages');
-        if (messagesWrapper) {
-          messagesWrapper.style.backgroundImage = "url('https://dev.selection-by-synneo.fr//img/cms/backgrounf.png')";
-          messagesWrapper.style.backgroundSize = "cover";
-          messagesWrapper.style.backgroundPosition = "center";
-          messagesWrapper.style.backgroundRepeat = "no-repeat";
+    // Observer pour détecter quand le shadow DOM du chatbot est prêt
+    const waitForMessagesContainer = () => {
+      const chatEl = document.querySelector('n8n-chat');
+      if (!chatEl) return;
+
+      const tryApplyBackground = () => {
+        const shadow = chatEl.shadowRoot;
+        if (!shadow) return;
+
+        const messages = shadow.querySelector('.chat__messages');
+        if (messages) {
+          messages.style.backgroundImage = "url('https://dev.selection-by-synneo.fr//img/cms/backgrounf.png')";
+          messages.style.backgroundSize = "cover";
+          messages.style.backgroundPosition = "center";
+          messages.style.backgroundRepeat = "no-repeat";
+          console.log('✅ Image de fond appliquée dans .chat__messages');
+          return true;
         }
-      }
-    }, 1000); // Délai pour s'assurer que le DOM interne est bien chargé
+        return false;
+      };
+
+      const observer = new MutationObserver(() => {
+        if (tryApplyBackground()) {
+          observer.disconnect();
+        }
+      });
+
+      // Observer uniquement si la cible n’est pas encore trouvée
+      observer.observe(chatEl, { childList: true, subtree: true });
+
+      // Sécurité : tentative manuelle toutes les 500ms pendant 5 secondes
+      let attempts = 0;
+      const interval = setInterval(() => {
+        if (tryApplyBackground() || ++attempts > 10) {
+          clearInterval(interval);
+          observer.disconnect();
+        }
+      }, 500);
+    };
+
+    // Lancer une fois le composant injecté
+    window.addEventListener('DOMContentLoaded', waitForMessagesContainer);
   </script>
 </body>
 </html>
