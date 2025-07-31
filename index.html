@@ -59,38 +59,39 @@
       --chat--window--border-radius: 0px;
     }
 
-    /* ✅ Barre de saisie centrée */
-    .n8n-chat .chat-input {
-      width: 30% !important;
-      margin: 0 auto !important;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+   /* ✅ Barre de saisie centrée avec espace en bas */
+.n8n-chat .chat-input {
+  width: 30% !important;
+  margin: 0 auto 10px auto !important; /* Ajout d’un margin-bottom de 10px */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
 
-    .n8n-chat .chat-input textarea {
-      width: 100% !important;
-      border: transparent !important;
-      outline: transparent;
-      resize: none;
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 0.6em;
-      box-shadow: none !important;
-    }
+.n8n-chat .chat-input textarea {
+  width: 100% !important;
+  border: transparent !important;
+  outline: transparent;
+  resize: none;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0.6em;
+  box-shadow: none !important;
+}
 
-    .n8n-chat .chat-input button {
-      flex-shrink: 0;
-      height: 50px;
-      padding: 0 16px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      color: #49D6BB;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+.n8n-chat .chat-input button {
+  flex-shrink: 0;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #49D6BB;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
