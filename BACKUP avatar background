@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Synneo - Plein écran</title>
+
+  <!-- Style de base du chat N8N -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://dev.selection-by-synneo.fr/img/cms/backgrounf.png') no-repeat center center;
+      background-size: cover;
+    }
+
+    #chat-container {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .n8n-chat-powered {
+      display: none !important;
+    }
+
+    :root {
+      --chat--color-primary: #49D6BB;
+      --chat--color-secondary: #49D6BB;
+
+      --chat--color-light: transparent; /* Fond transparent pour laisser apparaître l'image */
+
+      --chat--color-white: #ffffff;
+      --chat--color-dark: #101330;
+
+      --chat--message--bot--background: #e0f4fa;
+      --chat--message--bot--color: #000000;
+      --chat--message--user--background: #49D6BB;
+      --chat--message--user--color: #ffffff;
+
+      --chat--header--background: #49D6BB;
+      --chat--header--color: #ffffff;
+
+      --chat--window--border-radius: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://n8n.srv810164.hstgr.cloud/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat',
+      mode: 'fullscreen',
+      target: '#chat-container',
+      showWelcomeScreen: false,
+      initialMessages: [
+        'Bonjour 👋 Je suis Syntia, votre conseillère en objets publicitaires.',
+        'Avant de commencer, j’aurais besoin de savoir : quel est le nom de votre entreprise ?'
+      ],
+      defaultLanguage: 'fr',
+      i18n: {
+        fr: {
+          title: 'Syntia 👋',
+          subtitle: '',
+          footer: '',
+          getStarted: 'Commencer',
+          inputPlaceholder: 'Posez votre question ici...'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
