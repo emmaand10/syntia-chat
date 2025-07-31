@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot Synneo - Plein écran</title>
 
-  <!-- Style de base du chat N8N -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
@@ -28,22 +27,21 @@
       display: none !important;
     }
 
+    /* 🧼 Supprime visuellement le header */
+    .n8n-chat__header {
+      display: none !important;
+    }
+
     :root {
       --chat--color-primary: #49D6BB;
       --chat--color-secondary: #49D6BB;
 
-      --chat--color-light: transparent; /* Fond transparent pour laisser apparaître l'image */
-
-      --chat--color-white: #ffffff;
-      --chat--color-dark: #101330;
+      --chat--color-light: transparent;
 
       --chat--message--bot--background: #e0f4fa;
       --chat--message--bot--color: #000000;
       --chat--message--user--background: #49D6BB;
       --chat--message--user--color: #ffffff;
-
-      --chat--header--background: #49D6BB;
-      --chat--header--color: #ffffff;
 
       --chat--window--border-radius: 0px;
     }
@@ -67,8 +65,8 @@
       defaultLanguage: 'fr',
       i18n: {
         fr: {
-          title: 'Syntia 👋',
-          subtitle: '',
+          title: '',       // 🔕 Vide
+          subtitle: '',    // 🔕 Vide
           footer: '',
           getStarted: 'Commencer',
           inputPlaceholder: 'Posez votre question ici...'
