@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot Synneo - Plein écran</title>
 
-  <!-- Style de base du chat N8N -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
@@ -32,8 +31,7 @@
       --chat--color-primary: #49D6BB;
       --chat--color-secondary: #49D6BB;
 
-      --chat--color-light: transparent; /* Fond transparent pour laisser apparaître l'image */
-
+      --chat--color-light: transparent;
       --chat--color-white: #ffffff;
       --chat--color-dark: #101330;
 
@@ -46,6 +44,13 @@
       --chat--header--color: #ffffff;
 
       --chat--window--border-radius: 0px;
+    }
+
+    /* Réduction et centrage de la barre de saisie */
+    .n8n-chat textarea {
+      width: 50% !important;
+      margin: 0 auto !important;
+      display: block !important;
     }
   </style>
 </head>
