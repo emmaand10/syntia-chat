@@ -46,11 +46,36 @@
       --chat--window--border-radius: 0px;
     }
 
-    /* Réduction et centrage de la barre de saisie */
-    .n8n-chat textarea {
+    /* Bloc entrée texte + bouton dans 50% centré */
+    .n8n-chat .chat-input {
       width: 50% !important;
       margin: 0 auto !important;
-      display: block !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .n8n-chat .chat-input textarea {
+      width: 100% !important;
+      border: none !important;
+      outline: none !important;
+      resize: none;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 0.6em;
+      box-shadow: none !important;
+    }
+
+    .n8n-chat .chat-input button {
+      flex-shrink: 0;
+      height: 42px;
+      padding: 0 16px;
+      border-radius: 10px;
+      background-color: #49D6BB;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
   </style>
 </head>
