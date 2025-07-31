@@ -28,21 +28,34 @@
     }
 
     :root {
+      /* Couleurs principales */
       --chat--color-primary: #49D6BB;
       --chat--color-secondary: #49D6BB;
-
-      --chat--color-light: transparent;
       --chat--color-white: #ffffff;
+      --chat--color-light: transparent;
       --chat--color-dark: #101330;
 
-      --chat--message--bot--background: #e0f4fa;
-      --chat--message--bot--color: #000000;
-      --chat--message--user--background: #49D6BB;
-      --chat--message--user--color: #ffffff;
-
+      /* Header transparent */
       --chat--header--background: transparent;
       --chat--header--color: #ffffff;
 
+      /* Bulles utilisateur */
+      --chat--message--user--background: #49D6BB;
+      --chat--message--user--color: #ffffff;
+      --chat--message--user--border: none;
+
+      /* Bulles chatbot */
+      --chat--message--bot--background: #e0f4fa;
+      --chat--message--bot--color: #000000;
+      --chat--message--bot--border: none;
+
+      /* Style bulles (visuellement recentrées) */
+      --chat--message--font-size: 1rem;
+      --chat--message-line-height: 1.6;
+      --chat--message--padding: 1rem 2rem;
+      --chat--message--border-radius: 16px;
+
+      /* Bordures et coins */
       --chat--window--border-radius: 0px;
     }
 
@@ -78,21 +91,6 @@
       border: none;
       cursor: pointer;
     }
-
-/* ✅ Centrage des bulles réelles */
-.n8n-chat .chat-message--bot,
-.n8n-chat .chat-message--user {
-  justify-content: center !important;
-}
-
-.n8n-chat .chat-message--bot > div,
-.n8n-chat .chat-message--user > div {
-  margin: 6px auto !important;
-  max-width: 60%;
-  text-align: center !important;
-  border-radius: 16px !important;
-}
-
   </style>
 </head>
 <body>
