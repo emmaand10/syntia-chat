@@ -26,22 +26,12 @@
       display: none !important;
     }
 
-    /* Nouvelle règle pour appliquer ton image de fond à la zone des messages */
-    n8n-chat .chat__messages {
-      background-image: url('https://dev.selection-by-synneo.fr/img/cms/backgrounf.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
     :root {
       --chat--color-primary: #49D6BB;
-      --chat--color-primary-shade-50: #49D6BB;
-      --chat--color-primary-shade-100: #49D6BB;
       --chat--color-secondary: #49D6BB;
 
-      --chat--message--bot--background: rgba(255, 255, 255, 0.85); /* bulles bots semi-transparentes */
-      --chat--message--user--background: rgba(73, 214, 187, 0.95); /* bulles utilisateur */
+      --chat--message--bot--background: rgba(255, 255, 255, 0.85);
+      --chat--message--user--background: rgba(73, 214, 187, 0.95);
       --chat--message--user--color: #ffffff;
 
       --chat--header--background: #49D6BB;
@@ -77,6 +67,20 @@
         }
       }
     });
+
+    // ⚠️ Attendre le chargement complet puis injecter le fond image dans la zone des messages
+    setTimeout(() => {
+      const chat = document.querySelector('n8n-chat');
+      if (chat && chat.shadowRoot) {
+        const messagesWrapper = chat.shadowRoot.querySelector('.chat__messages');
+        if (messagesWrapper) {
+          messagesWrapper.style.backgroundImage = "url('https://dev.selection-by-synneo.fr//img/cms/backgrounf.png')";
+          messagesWrapper.style.backgroundSize = "cover";
+          messagesWrapper.style.backgroundPosition = "center";
+          messagesWrapper.style.backgroundRepeat = "no-repeat";
+        }
+      }
+    }, 1000); // Délai pour s'assurer que le DOM interne est bien chargé
   </script>
 </body>
 </html>
