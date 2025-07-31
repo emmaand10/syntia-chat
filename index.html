@@ -78,21 +78,26 @@
       cursor: pointer;
     }
 
-    /* Centrage des bulles de discussion */
+    /* Centrage des bulles */
     .n8n-chat .chat-message {
-      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .n8n-chat .chat-message--user,
+    .n8n-chat .chat-message--bot {
       justify-content: center !important;
     }
 
     .n8n-chat .chat-message__bubble {
+      margin: 4px auto !important;
       max-width: 60%;
+      text-align: center;
       border-radius: 16px;
     }
 
-    /* Optionnel : texte centré dans les bulles */
     .n8n-chat .chat-message__bubble p {
-      text-align: center;
       margin: 0;
+      text-align: center;
     }
   </style>
 </head>
@@ -125,3 +130,4 @@
   </script>
 </body>
 </html>
+
