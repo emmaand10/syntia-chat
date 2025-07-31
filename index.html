@@ -13,7 +13,7 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      background: url('https://dev.selection-by-synneo.fr/img/cms/background.png') no-repeat center center;
+      background: url('https://dev.selection-by-synneo.fr/img/cms/A happy woman speaking by moving her lips and smiling.gif') no-repeat center center;
       background-size: cover;
     }
 
@@ -46,7 +46,7 @@
       --chat--window--border-radius: 0px;
     }
 
-    /* Bloc entrée texte + bouton dans 50% centré */
+    /* Barre de saisie centrée à 50% */
     .n8n-chat .chat-input {
       width: 50% !important;
       margin: 0 auto !important;
@@ -76,6 +76,23 @@
       color: white;
       border: none;
       cursor: pointer;
+    }
+
+    /* Centrage des bulles de discussion */
+    .n8n-chat .chat-message {
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .n8n-chat .chat-message__bubble {
+      max-width: 60%;
+      border-radius: 16px;
+    }
+
+    /* Optionnel : texte centré dans les bulles */
+    .n8n-chat .chat-message__bubble p {
+      text-align: center;
+      margin: 0;
     }
   </style>
 </head>
