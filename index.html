@@ -62,11 +62,8 @@
    /* ✅ Barre de saisie centrée avec espace en bas */
 .n8n-chat .chat-input {
   width: 30% !important;
-  margin: 0 auto 10px auto !important; /* Ajout d’un margin-bottom de 10px */
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  margin: 0 auto 10px auto !important;
+  position: relative; /* pour permettre au bouton d’être positionné absolument */
 }
 
 .n8n-chat .chat-input textarea {
@@ -76,20 +73,24 @@
   resize: none;
   background: #ffffff;
   border-radius: 10px;
-  padding: 0.6em;
+  padding: 0.6em 3.2em 0.6em 0.6em; /* padding à droite augmenté pour éviter que le texte chevauche le bouton */
   box-shadow: none !important;
 }
 
 .n8n-chat .chat-input button {
-  flex-shrink: 0;
-  height: 50px;
-  padding: 0 16px;
-  border-radius: 10px;
+  position: absolute;
+  right: 10px; /* espace entre le bord droit du textarea et le bouton */
+  top: 50%;
+  transform: translateY(-50%); /* centrage vertical */
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
   background-color: #ffffff;
   color: #49D6BB;
   font-weight: bold;
   border: none;
   cursor: pointer;
+  z-index: 2; /* s’assurer qu’il est bien au-dessus */
 }
 
   </style>
