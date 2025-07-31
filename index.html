@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot Synneo - Plein écran</title>
 
-  <!-- Style de base du chat N8N -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
@@ -21,14 +20,18 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      background-image: url('https://dev.selection-by-synneo.fr//img/cms/backgrounf.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
 
     .n8n-chat-powered {
       display: none !important;
+    }
+
+    /* Nouvelle règle pour appliquer ton image de fond à la zone des messages */
+    n8n-chat .chat__messages {
+      background-image: url('https://dev.selection-by-synneo.fr/img/cms/backgrounf.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     :root {
@@ -37,9 +40,8 @@
       --chat--color-primary-shade-100: #49D6BB;
       --chat--color-secondary: #49D6BB;
 
-      --chat--message--bot--background: rgba(255, 255, 255, 0.85); /* Fond clair semi-transparent */
-      --chat--message--bot--color: #000000;
-      --chat--message--user--background: rgba(73, 214, 187, 0.9);
+      --chat--message--bot--background: rgba(255, 255, 255, 0.85); /* bulles bots semi-transparentes */
+      --chat--message--user--background: rgba(73, 214, 187, 0.95); /* bulles utilisateur */
       --chat--message--user--color: #ffffff;
 
       --chat--header--background: #49D6BB;
