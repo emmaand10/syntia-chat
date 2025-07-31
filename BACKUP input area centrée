@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Synneo - Plein écran</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://dev.selection-by-synneo.fr/img/cms/background.png') no-repeat center center;
+      background-size: cover;
+    }
+
+    #chat-container {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .n8n-chat-powered {
+      display: none !important;
+    }
+
+    :root {
+      --chat--color-primary: #49D6BB;
+      --chat--color-secondary: #49D6BB;
+
+      --chat--color-light: transparent;
+      --chat--color-white: #ffffff;
+      --chat--color-dark: #101330;
+
+      --chat--message--bot--background: #e0f4fa;
+      --chat--message--bot--color: #000000;
+      --chat--message--user--background: #49D6BB;
+      --chat--message--user--color: #ffffff;
+
+      --chat--header--background: transparent;
+      --chat--header--color: #ffffff;
+
+      --chat--window--border-radius: 0px;
+    }
+
+    /* ✅ Barre de saisie centrée */
+    .n8n-chat .chat-input {
+      width: 30% !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .n8n-chat .chat-input textarea {
+      width: 100% !important;
+      border: transparent !important;
+      outline: transparent;
+      resize: none;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 0.6em;
+      box-shadow: none !important;
+    }
+
+    .n8n-chat .chat-input button {
+      flex-shrink: 0;
+      height: 50px;
+      padding: 0 16px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      color: #49D6BB;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+/* ✅ Centrage des bulles réelles */
+.n8n-chat .chat-message--bot,
+.n8n-chat .chat-message--user {
+  justify-content: center !important;
+}
+
+.n8n-chat .chat-message--bot > div,
+.n8n-chat .chat-message--user > div {
+  margin: 6px auto !important;
+  max-width: 60%;
+  text-align: center !important;
+  border-radius: 16px !important;
+}
+
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://n8n.srv810164.hstgr.cloud/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat',
+      mode: 'fullscreen',
+      target: '#chat-container',
+      showWelcomeScreen: false,
+      initialMessages: [
+        'Bonjour 👋 Je suis Syntia, votre conseillère en objets publicitaires.',
+        'Avant de commencer, j’aurais besoin de savoir : quel est le nom de votre entreprise ?'
+      ],
+      defaultLanguage: 'fr',
+      i18n: {
+        fr: {
+          title: ' ',
+          subtitle: '',
+          footer: '',
+          getStarted: 'Commencer',
+          inputPlaceholder: 'Posez votre question ici...'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
