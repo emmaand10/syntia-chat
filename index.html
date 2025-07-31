@@ -5,53 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot Synneo - Plein écran</title>
 
+  <!-- Style de base du chat N8N -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
       height: 100%;
+      width: 100%;
+      background: #035979;
     }
 
-    /* Arrière-plan sous le chatbot */
     #chat-container {
-      position: relative;
-      width: 100vw;
       height: 100vh;
+      width: 100vw;
       overflow: hidden;
-      background: url('https://dev.selection-by-synneo.fr//img/cms/backgrounf.png') center/cover no-repeat;
-    }
-
-    /* Rendre le fond du chatbot transparent */
-    n8n-chat {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: transparent !important;
-      backdrop-filter: none !important;
-    }
-
-    /* Supprime le fond des messages (transparence) */
-    :root {
-      --chat--message--bot--background: rgba(255, 255, 255, 0.8);
-      --chat--message--user--background: rgba(73, 214, 187, 0.9);
-      --chat--header--background: rgba(73, 214, 187, 0.95);
-      --chat--window--border-radius: 0px;
     }
 
     .n8n-chat-powered {
       display: none !important;
     }
+
+    :root {
+      --chat--color-primary: #49D6BB;
+      --chat--color-secondary: #49D6BB;
+
+      --chat--color-light: #035979; /* 👈 Couleur de fond principale du chat */
+      --chat--color-white: #ffffff;
+      --chat--color-dark: #101330;
+
+      --chat--message--bot--background: #e0f4fa;
+      --chat--message--bot--color: #000000;
+      --chat--message--user--background: #49D6BB;
+      --chat--message--user--color: #ffffff;
+
+      --chat--header--background: #49D6BB;
+      --chat--header--color: #ffffff;
+
+      --chat--window--border-radius: 0px;
+    }
   </style>
 </head>
 <body>
-  <div id="chat-container">
-    <n8n-chat></n8n-chat>
-  </div>
+  <div id="chat-container"></div>
 
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
@@ -59,7 +56,7 @@
     createChat({
       webhookUrl: 'https://n8n.srv810164.hstgr.cloud/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat',
       mode: 'fullscreen',
-      target: 'n8n-chat',
+      target: '#chat-container',
       showWelcomeScreen: false,
       initialMessages: [
         'Bonjour 👋 Je suis Syntia, votre conseillère en objets publicitaires.',
