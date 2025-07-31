@@ -13,7 +13,7 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      background: url('https://dev.selection-by-synneo.fr/img/cms/GIF backgroundd.gif') no-repeat center center;
+      background: url('https://dev.selection-by-synneo.fr/img/cms/GIF%20backgroundd.gif') no-repeat center center;
       background-size: cover;
     }
 
@@ -46,9 +46,9 @@
       --chat--window--border-radius: 0px;
     }
 
-    /* Barre de saisie centrée à 50% */
+    /* ✅ Barre de saisie centrée */
     .n8n-chat .chat-input {
-      width: 30% !important;
+      width: 50% !important;
       margin: 0 auto !important;
       display: flex !important;
       align-items: center;
@@ -57,7 +57,7 @@
     }
 
     .n8n-chat .chat-input textarea {
-      width: 50% !important;
+      width: 100% !important;
       border: none !important;
       outline: none !important;
       resize: none;
@@ -72,27 +72,32 @@
       height: 50px;
       padding: 0 16px;
       border-radius: 10px;
-      background-color: #FFFFFF;
-      color: white;
+      background-color: #ffffff;
+      color: #49D6BB;
+      font-weight: bold;
       border: none;
       cursor: pointer;
     }
 
-    /* Centrage des bulles */
-    .n8n-chat .chat-message {
-      justify-content: center !important;
+    /* ✅ Centrage des bulles */
+    .n8n-chat .chat-messages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .n8n-chat .chat-message--user,
-    .n8n-chat .chat-message--bot {
+    .n8n-chat .chat-message {
+      width: 100%;
+      display: flex;
       justify-content: center !important;
     }
 
     .n8n-chat .chat-message__bubble {
-      margin: 4px auto !important;
+      margin: 6px auto !important;
       max-width: 60%;
       text-align: center;
       border-radius: 16px;
+      padding: 0.75em 1em;
     }
 
     .n8n-chat .chat-message__bubble p {
@@ -130,4 +135,3 @@
   </script>
 </body>
 </html>
-
