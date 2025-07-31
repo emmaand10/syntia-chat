@@ -79,22 +79,18 @@
       cursor: pointer;
     }
 
-/* ✅ Centrage des bulles */
-.n8n-chat .chat-message {
+/* ✅ Centrage des bulles réelles */
+.n8n-chat .chat-message--bot,
+.n8n-chat .chat-message--user {
   justify-content: center !important;
 }
 
-.n8n-chat .chat-message__bubble {
-  margin-left: auto !important;
-  margin-right: auto !important;
+.n8n-chat .chat-message--bot > div,
+.n8n-chat .chat-message--user > div {
+  margin: 6px auto !important;
   max-width: 60%;
   text-align: center !important;
-  border-radius: 30px;
-}
-
-.n8n-chat .chat-message__bubble p {
-  text-align: center !important;
-  margin: 0 !important;
+  border-radius: 16px !important;
 }
 
   </style>
